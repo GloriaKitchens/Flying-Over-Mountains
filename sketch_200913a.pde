@@ -7,13 +7,19 @@ float flying = 0;
 
 float[][] terrain;
 Terrain t;
+Menu menu;
+
+void settings() {
+  size(800, 800, P3D);
+  noSmooth(); 
+}
 
 void setup() {
-  size(800, 800, P3D);
   cols = w / scale;
   rows = h / scale;
   terrain = new float[cols][rows];
   t = new Terrain(w, h);
+  menu = new Menu(width, height);
 }
 
 void keyPressed() {
@@ -39,5 +45,10 @@ void keyPressed() {
 
 void draw() {
   keyPressed();
-  t.show();
+  background(0);
+  if (menu.isEnabled()) {
+    menu.show();
+  } else {
+    t.show();
+  }
 }
