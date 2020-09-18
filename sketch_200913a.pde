@@ -1,7 +1,7 @@
 int cols, rows;
 int scale = 20;
-int w = 1500;
-int h = 1700;
+int w = 1700;
+int h = 1500;
 
 float flying = 0;
 
@@ -9,7 +9,7 @@ float[][] terrain;
 Terrain t;
 
 void setup() {
-  size(600, 600, P3D);
+  size(800, 800, P3D);
   cols = w / scale;
   rows = h / scale;
   terrain = new float[cols][rows];
@@ -39,6 +39,5 @@ void keyPressed() {
 
 void draw() {
   keyPressed();
-  //pointLight(200, 200, 200, width/2, height/2, -200);
   t.show();
 }
