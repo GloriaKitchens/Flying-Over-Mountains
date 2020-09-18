@@ -20,11 +20,13 @@ class Terrain {
     initColorTerrain();
   }
   
+  // 
   void setFlying(float flyingX, float flyingY) {
       this.flyingX += flyingX;
       this.flyingY += flyingY;
   }
   
+  // generates color for each vertex in the terrain
   void initColorTerrain() {
     for (int y = 0; y < rows; y++) {
       for (int x = 0; x < cols; x++) {
@@ -37,7 +39,8 @@ class Terrain {
     }
   }
   
-  void show() {    
+  void show() {
+    // uses perlin noise to create z components
     float yOff = flyingY;
     for (int y = 0; y < rows; y++) {
       float xOff = flyingX;
@@ -49,21 +52,16 @@ class Terrain {
     }
     
     background(0);
-    // makes entire thing fade in and out from black to white and back
     
-    //if (c >= 255) cSpeed = -2;
-    //if (c <= 50) cSpeed = 2;
-    //c += cSpeed;
-    
-    //fill(c);
-    
+    // transforms terrain so that it faces up instead of
+    // out of the screen
     translate(width/2 + 30, height/2 + 50);
     rotateX(PI/3);
     
     translate(-w/2, -h/2);
     
+    // draws terrain
     for (int y = 0; y < rows - 1; y++) {
-     
       beginShape(TRIANGLE_STRIP);
       for (int x = 0; x < cols; x++) {
         fill(colorTerrain[x][y]);
