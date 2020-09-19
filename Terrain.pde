@@ -52,6 +52,7 @@ class Terrain {
     }
     
     background(0);
+    strokeWeight(1);
     
     // transforms terrain so that it faces up instead of
     // out of the screen
