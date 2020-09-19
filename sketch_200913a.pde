@@ -35,6 +35,11 @@ void keyPressed() {
          break;
        case RIGHT: flyingX = 0.1f;
          break;
+       case ESC: key = 0;
+         // weird behavior with going from terrain back to menu
+         if (!menu.isEnabled())
+           menu.setEnabled(true);
+         break;
        case ' ': flyingX = 0;
                  flyingY = 0;
          break;
@@ -47,7 +52,7 @@ void draw() {
   keyPressed();
   background(0);
   if (menu.isEnabled()) {
-    menu.show();
+    menu.showMenu();
   } else {
     t.show();
   }

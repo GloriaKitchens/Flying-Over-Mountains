@@ -24,13 +24,13 @@ class Menu {
      startButtonHeight = this.h / 6.0f;
   }
   
-  void generateBox(color c) {
+  void generateBoxes(color c) {
     fill(c);
     strokeWeight(4);
     // menu box
     rect(w / 2.0f, h / 2.0f, w, h, 3);
     
-    color startBack = isMouseOverStart() ? 255 : 0;
+    color startBack = isMouseOverStart() ? 255 : c;
     fill(startBack);
     // start box
     rect(startButtonLeftCornerW, startButtonLeftCornerH, startButtonWidth, startButtonHeight);
@@ -49,20 +49,34 @@ class Menu {
     float authorLeftCornerH = titleLeftCornerH + (h / 2.0f);
     text("Created by: " + author, authorLeftCornerW, authorLeftCornerH, w, h);
     
-    color startTextColor = isMouseOverStart() ? 0 : 255;
+    color startTextColor = isMouseOverStart() ? 0 : c;
     fill(startTextColor);
     textFont(font, 32);
     text(startButtonText, startButtonLeftCornerW, startButtonLeftCornerH + (textPadding - 10) / 2.0f, startButtonWidth, startButtonHeight);
   }
   
-  void show() {
-    generateBox(0);
+  void createBackArrow() {
+    textFont(font, 32);
+    //text("\u2190", 0, 0);
+    text("hello", 0, 0);
+  }
+  
+  void showMenu() {
+    generateBoxes(0);
     generateText(255);
     if (mousePressed && isMouseOverStart()) enabled = false;
   }
   
+  void showBackButton() {
+    createBackArrow();
+  }
+  
   boolean isEnabled() {
     return enabled; 
+  }
+  
+  void setEnabled(boolean b) {
+    enabled = b; 
   }
   
   boolean isMouseOverStart() {
