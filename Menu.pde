@@ -55,20 +55,10 @@ class Menu {
     text(startButtonText, startButtonLeftCornerW, startButtonLeftCornerH + (textPadding - 10) / 2.0f, startButtonWidth, startButtonHeight);
   }
   
-  void createBackArrow() {
-    textFont(font, 32);
-    //text("\u2190", 0, 0);
-    text("hello", 0, 0);
-  }
-  
   void showMenu() {
     generateBoxes(0);
     generateText(255);
     if (mousePressed && isMouseOverStart()) enabled = false;
-  }
-  
-  void showBackButton() {
-    createBackArrow();
   }
   
   boolean isEnabled() {
@@ -84,7 +74,6 @@ class Menu {
      && (mouseY > startButtonLeftCornerH && mouseY < startButtonLeftCornerH + startButtonHeight)) {
        return true;
      }
-       
     return false;
   }
 }

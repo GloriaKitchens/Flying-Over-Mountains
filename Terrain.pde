@@ -20,7 +20,6 @@ class Terrain {
     initColorTerrain();
   }
   
-  // 
   void setFlying(float flyingX, float flyingY) {
       this.flyingX += flyingX;
       this.flyingY += flyingY;

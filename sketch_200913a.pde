@@ -27,18 +27,14 @@ void keyPressed() {
     float flyingY = 0;
     if (keyCode == 0) return;
     switch(keyCode) {
-       case UP: flyingY = -0.1f;
+       case UP: key = 0;
+                flyingY = -0.1f;
          break;
        case DOWN: flyingY = 0.1f;
          break;
        case LEFT: flyingX = -0.1f;
          break;
        case RIGHT: flyingX = 0.1f;
-         break;
-       case ESC: key = 0;
-         // weird behavior with going from terrain back to menu
-         if (!menu.isEnabled())
-           menu.setEnabled(true);
          break;
        case ' ': flyingX = 0;
                  flyingY = 0;
